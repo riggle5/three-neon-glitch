@@ -9,7 +9,7 @@ import bold from './resources/3d_italic.blob'
 
 const Text = forwardRef(({ children, size = 1, ...props }, ref) => {
   const font = useLoader(THREE.FontLoader, bold)
-  const config = useMemo(() => ({ font, size: 45, height: 50, curveSegments: 25, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelOffset: 1, bevelSegments: 0 }), [font])
+  const config = useMemo(() => ({ font, size: 37, height: 50, curveSegments: 25, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelOffset: 1, bevelSegments: 0 }), [font])
   const mesh = useUpdate(
     (self) => {
       const windowSize = new THREE.Vector3();

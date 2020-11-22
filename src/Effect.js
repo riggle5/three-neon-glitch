@@ -23,7 +23,7 @@ const Effect = ({grayScale}) => {
       setGlitch(false)
     }
     clearInterval(glitchTimer)
-  }, Math.round( Math.random() * 700 ));
+  }, Math.round( Math.random() * 1200 ));
 
   return (
     <effectComposer ref={composer} args={[gl]}>
