@@ -1,11 +1,7 @@
 import * as THREE from 'three'
 import React, { forwardRef, useMemo } from 'react'
 import { useLoader, useUpdate } from 'react-three-fiber'
-// import bold from './resources/Italic.blob'
-// import bold from './resources/halftone_Italic.blob'
 import bold from './resources/3d_italic.blob'
-// import bold from './resources/chrome_italic.blob'
-// import bold from './resources/laser_italic.blob'
 
 const Text = forwardRef(({ children, size = 1, ...props }, ref) => {
   const font = useLoader(THREE.FontLoader, bold)

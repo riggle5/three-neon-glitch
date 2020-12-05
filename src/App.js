@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState, useCallback, Suspense } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import * as THREE from 'three'
-import { Canvas, extend, useFrame, useThree } from 'react-three-fiber'
+import { Canvas, extend } from 'react-three-fiber'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
@@ -11,8 +11,8 @@ import Geometry from './Geometry'
 extend({ EffectComposer, RenderPass, UnrealBloomPass, GlitchPass })
 
 const App = () => {
-  const mouse = useRef([0, 0])
-  const onMouseMove = useCallback(({ clientX: x, clientY: y }) => (mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2]), [])
+  const mouse = useRef([0, 0]);
+  const onMouseMove = useCallback(({ clientX: x, clientY: y }) => (mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2]), []);
   const [grayScale, setGrayScale] = useState(false);
   
   return (
@@ -23,7 +23,7 @@ const App = () => {
       onMouseDown={() => setGrayScale(true)} 
       onMouseUp={() => setGrayScale(false)} 
       onCreated={({ gl }) => {
-        gl.setClearColor(new THREE.Color('#2b1b33'))
+        gl.setClearColor(new THREE.Color('#2b1b33'));
       }}
     >
       <fog attach="fog" args={['black', 50, 200]} />

@@ -1,5 +1,4 @@
 import React, { useRef, Suspense } from 'react'
-// import * as THREE from 'three'
 import { extend, useFrame, useThree } from 'react-three-fiber'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'

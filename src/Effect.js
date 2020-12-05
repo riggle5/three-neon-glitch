@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo, Suspense } from 'react'
+import React, { useRef, useEffect, useState, useMemo } from 'react'
 import * as THREE from 'three'
 import { extend, useFrame, useThree } from 'react-three-fiber'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
@@ -10,19 +10,19 @@ import { GlitchPass } from './GlitchPass'
 extend({ EffectComposer, RenderPass, UnrealBloomPass, GlitchPass, FilmPass })
 
 const Effect = ({grayScale}) => {
-  const composer = useRef()
+  const composer = useRef();
   const [glitch, setGlitch] = useState(false);
-  const { scene, gl, size, camera } = useThree()
-  const aspect = useMemo(() => new THREE.Vector2(512, 512), [])
-  useEffect(() => void composer.current.setSize(size.width, size.height), [size])
+  const { scene, gl, size, camera } = useThree();
+  const aspect = useMemo(() => new THREE.Vector2(512, 512), []);
+  useEffect(() => void composer.current.setSize(size.width, size.height), [size]);
   useFrame(() => composer.current.render(), 1)
   const glitchTimer = setInterval(() => {
     if (!glitch) {
-        setGlitch(true)
+      setGlitch(true);
     } else {
-      setGlitch(false)
+      setGlitch(false);
     }
-    clearInterval(glitchTimer)
+    clearInterval(glitchTimer);
   }, Math.round( Math.random() * 1200 ));
 
   return (
